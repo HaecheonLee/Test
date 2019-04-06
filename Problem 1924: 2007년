@@ -1,0 +1,27 @@
+// Example program
+#include <iostream>
+#include <string>
+
+int main()
+{
+    std::string str[] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    int x, y;
+    
+    std::cin>>x>>y;
+    
+    if((x>=1 && x<=12) && (y>=1 && y<=31) && (y<=daysInMonth[x-1])){
+        int result = 0;
+        
+        for(int i=1;i<x;i++){
+            result +=daysInMonth[i-1];
+        }
+        
+        result += y;
+        result = result % 7;
+            
+        std::cout<<str[result]<<std::endl;
+    }
+    return 0;
+}
