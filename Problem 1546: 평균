@@ -1,0 +1,49 @@
+// Example program
+#include <iostream>
+#include <iomanip> 
+
+using namespace std;
+
+double findHighest(double*, size_t);
+
+double findHighest(double *arr, size_t size){
+    double highest {arr[0]};
+    
+    for(int i = 1 ; i < size ; i++){
+        highest = (highest>arr[i]) ? highest : arr[i];
+    }
+    
+    return highest;
+}
+
+
+int main()
+{
+    int n {};
+    double result {};
+    
+    cin>>n;
+    
+    double arr[n];
+    
+    for(int i = 0 ; i < n ; i++){
+        double value{};
+        cin>>value;
+        
+        arr[i] = value;
+    }
+    
+    double highest = findHighest(arr, n);
+    
+    double sum {};
+    for(int i = 0 ; i < n ; i++){
+         sum += arr[i] / highest * 100;   
+    }
+    
+    result = sum / n;
+        
+    cout<<setprecision(4);
+    cout<<result<<endl;
+    
+    return 0;
+}
